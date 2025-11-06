@@ -13,7 +13,7 @@ fn main() {
     for i in 0..10 {
         let handle = thread::spawn(move || {
             let start = Instant::now();
-            thread::sleep(Duration::from_millis(250));
+            thread::sleep(Duration::from_millis(100));
             println!("Thread {i} done");
             start.elapsed().as_millis()
         });
@@ -24,6 +24,9 @@ fn main() {
     for handle in handles {
         // TODO: Collect the results of all threads into the `results` vector.
         // Use the `JoinHandle` struct which is returned by `thread::spawn`.
+        let result = handle.join().unwrap();
+        results.push(result);
+
     }
 
     if results.len() != 10 {

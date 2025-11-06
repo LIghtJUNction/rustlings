@@ -1,17 +1,27 @@
 fn trim_me(input: &str) -> &str {
     // TODO: Remove whitespace from both ends of a string.
+    input.trim()
 }
 
 fn compose_me(input: &str) -> String {
     // TODO: Add " world!" to the string! There are multiple ways to do this.
+    input.to_string() + " world!"
 }
 
 fn replace_me(input: &str) -> String {
     // TODO: Replace "cars" in the string with "balloons".
+    input.replace("cars", "balloons")
 }
 
 fn main() {
     // You can optionally experiment here.
+    let example = "   Hello, Rust!   ";
+    println!("Trimmed: '{}'", trim_me(example));
+    println!("Composed: '{}'", compose_me("Hello"));
+    println!(
+        "Replaced: '{}'",
+        replace_me("I think cars are the best vehicles.")
+    );
 }
 
 #[cfg(test)]
